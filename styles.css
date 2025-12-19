@@ -144,6 +144,35 @@ h2 {
     transform: scale(1.1);
 }
 
+.imgs__wrapper {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.img__wrapper {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    width: 30%;
+    height: 100%;
+}
+
+.img__wrapper img {
+    width: 100%;
+    height: 100%;
+    max-width: 210px;
+    margin: 12px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+    overflow: hidden;
+    transition: all 300ms ease;
+}
+
+.img__wrapper:hover img {
+    opacity: 0.8;
+}
+
+
 /*
 
 USER
@@ -232,6 +261,8 @@ USER
   border-radius: 10px;
   padding: 14px;
 }
+
+
 
 
 
