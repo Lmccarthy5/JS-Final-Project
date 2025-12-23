@@ -100,6 +100,14 @@ APP
     max-width: 430px;
 }
 
+.link__hover--effect {
+    transition: all 300ms ease;
+}
+
+.link__hover--effect:hover {
+    border-bottom: 2px solid #fff;
+}
+
 .nav__link--list {
     display: flex;
 }
