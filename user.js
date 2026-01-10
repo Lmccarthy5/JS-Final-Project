@@ -9,8 +9,11 @@ function searchChange(event) {
 let currentMovies = []
 
 async function renderMovies(searchTerm) {
+    const loader = document.querySelector(".loading");
+    loader.classList.add(".loading--visible");
     const response = await fetch(`https://www.omdbapi.com/?apikey=23ac2af0&s=${searchTerm}`)
     const data = await response.json();
+    loader.classList.remove(".loading--visible")
     currentMovies = data.Search
     displayMovies(currentMovies)
 }
@@ -36,22 +39,12 @@ function sortChange(event) {
     let sortedMovies = [...currentMovies];
 
     if (sortOption === "newest") {
-        sortedMovies.sort((a, b) => b.year - a.year);
+        sortedMovies.sort((a, b) => b.Year - a.Year);
     } else if (sortOption === "oldest") {
-        sortedMovies.sort((a, b) => a.year - b.year);
+        sortedMovies.sort((a, b) => a.Year - b.Year);
     }
 
     displayMovies(sortedMovies);
-}
-
-function loading(event) {
-    event.preventDefault();
-    const waiting = document.querySelector(`.loading`)
-    waiting.classList += " loading--visible"
-
-    .then(() => {
-        waiting.classList.remove("loading--visible")
-    })
 }
 
 
