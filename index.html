@@ -27,7 +27,7 @@
             <a href="#" class="link__hover--effect">Find Your Show</a>
             </li>
         <li class="nav__link">
-            <a class="nav__btn">CONTACT</a>
+            <a href=""class="nav__btn">CONTACT</a>
             </li>
         </ul>
         </div>
@@ -37,7 +37,8 @@
             <div class="input__wrapper">
              <input type="text"
               placeholder="Search by Title, Year or Keyword"
-            onChange="searchChange(event)"/>
+            onChange="searchChange(event)"
+            onSubmit="loading(event)"/>
             <div class="header__btn click">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
@@ -46,27 +47,21 @@
             </div>
         <section id="search">
         <div class="search__filter justify-between">
-        <h2>Search Results:</h2>
-        <select name="movieSort" id="movieSort">
+        <h1>Search Results:<span class="searchName">
+        </span></h1>
+        <select name="movieSort" id="movieSort" onchange="sortChange(event)">
         <option disabled selected value="">Sort by Year</option>
         <option value="newest">Newest to Oldest</option>
         <option value="oldest">Oldest to Newest</option>
     </select>
     </div>
-    <div class="container">
-    <div class="row">
-      <div class="movie-list">
-        <div class="shows">
-          <div class="show-card">
-            <div class="show-card__container">
-              <h3>Title</h3>
-                <p><b>Year</b></p>
-            </div>
-          </div>
+    <div class="movie-list">
+    <div class="show-card">
+        <div class="loading">
+            <i class="fas fa-spinner"></i>
         </div>
-      </div>
+    <div class="show-card__container"></div>
     </div>
-  </div>
     </div>
     </section>
     </div>
