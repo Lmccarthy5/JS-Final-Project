@@ -10,12 +10,16 @@ let currentMovies = []
 
 async function renderMovies(searchTerm) {
     const loader = document.querySelector(".loading");
-    loader.classList.add(".loading--visible");
-    const response = await fetch(`https://www.omdbapi.com/?apikey=23ac2af0&s=${searchTerm}`)
+    loader.classList.add("loading--visible");
+
+    setTimeout(async () => {
+    const response = await fetch(`https://www.omdbapi.com/?apikey=23ac2af0&s=${searchTerm}`);
     const data = await response.json();
-    loader.classList.remove(".loading--visible")
-    currentMovies = data.Search
+
+    currentMovies = data.Search || [];
     displayMovies(currentMovies)
+
+    loader.classList.remove("loading--visible")}, 1000)
 }
 
 function displayMovies(movieList) {
